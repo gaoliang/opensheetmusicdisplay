@@ -62,7 +62,9 @@ export class CanvasVexFlowBackend extends VexFlowBackend {
             this.graphicalMusicPage = new GraphicalMusicPage(undefined);
             this.graphicalMusicPage.PageNumber = 1;
         }
-        this.canvas = document.createElement("canvas");
+        if (!this.canvas) {
+            this.canvas = document.createElement("canvas");
+        }
         (this.canvas as any).width = width;
         (this.canvas as any).height = height;
         this.renderer = new Vex.Flow.Renderer(this.canvas, this.getVexflowBackendType());
